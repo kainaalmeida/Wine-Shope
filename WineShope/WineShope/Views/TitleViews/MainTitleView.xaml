@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="WineShope.Views.TitleViews.MainTitleView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.Column="0"
+                Aspect="AspectFit"
+                Source="menu" />
+            <Image
+                Grid.Column="1"
+                Aspect="AspectFit"
+                Source="WineShope" />
+            <Image
+                Grid.Column="2"
+                Margin="0,0,10,0"
+                Aspect="AspectFit"
+                Source="cart" />
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>
