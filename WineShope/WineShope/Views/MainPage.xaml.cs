@@ -12,5 +12,10 @@ namespace WineShope.Views
             InitializeComponent();
             BindingContext = new MainPageViewModel(Navigation);
         }
+
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((CollectionView)sender).SelectedItem = null;
+        }
     }
 }

@@ -64,6 +64,7 @@
                     Margin="0,30,0,0"
                     ItemsSource="{Binding Wines}"
                     SelectedItem="{Binding WineSelected}"
+                    SelectionChanged="CollectionView_SelectionChanged"
                     SelectionChangedCommand="{Binding DetailCommand}"
                     SelectionChangedCommandParameter="{Binding WineSelected}"
                     SelectionMode="Single">
