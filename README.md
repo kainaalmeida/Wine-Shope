@@ -37,6 +37,6 @@
   </tbody>
  </table>
 
-# Gifs
-
+# Gif
+<img src="https://github.com/kainaalmeida/Wine-Shope/blob/master/gif/wine-shope.gif"/>
 
