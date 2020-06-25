@@ -7,7 +7,11 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     xmlns:titleView="clr-namespace:WineShope.Views.TitleViews"
+    sharedTransitions:SharedTransitionNavigationPage.BackgroundAnimation="Fade"
+    sharedTransitions:SharedTransitionNavigationPage.TransitionDuration="500"
+    sharedTransitions:SharedTransitionNavigationPage.TransitionSelectedGroup="{Binding WineSelectedId}"
     BackgroundColor="#E5E5E5"
     mc:Ignorable="d">
     <NavigationPage.TitleView>
@@ -58,7 +62,11 @@
                 <CollectionView
                     Grid.Row="2"
                     Margin="0,30,0,0"
-                    ItemsSource="{Binding Wines}">
+                    ItemsSource="{Binding Wines}"
+                    SelectedItem="{Binding WineSelected}"
+                    SelectionChangedCommand="{Binding DetailCommand}"
+                    SelectionChangedCommandParameter="{Binding WineSelected}"
+                    SelectionMode="Single">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout
                             HorizontalItemSpacing="15"
@@ -89,6 +97,8 @@
                                     <Image
                                         Grid.RowSpan="5"
                                         Grid.Column="0"
+                                        sharedTransitions:Transition.Group="{Binding Id}"
+                                        sharedTransitions:Transition.Name="wineImg"
                                         Aspect="AspectFill"
                                         HeightRequest="150"
                                         Source="{Binding Img}"

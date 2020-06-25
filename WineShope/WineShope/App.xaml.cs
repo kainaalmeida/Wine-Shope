@@ -1,7 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Plugin.SharedTransitions;
 using WineShope.Views;
+using Xamarin.Forms;
 
 namespace WineShope
 {
@@ -11,7 +10,7 @@ namespace WineShope
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 
         protected override void OnStart()

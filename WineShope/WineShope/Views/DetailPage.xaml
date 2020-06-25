@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WineShope.Views.DetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    iOS:Page.UseSafeArea="True"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Image Aspect="Fill" Source="back_lines" />
+
+                <Image
+                    Grid.Row="0"
+                    Margin="20"
+                    HeightRequest="30"
+                    HorizontalOptions="Start"
+                    Source="back"
+                    VerticalOptions="Start"
+                    WidthRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Grid Grid.Row="1" Margin="0,-400,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+
+                    <StackLayout Grid.Row="0">
+                        <Image
+                            Margin="0,20,0,0"
+                            Source="back_white"
+                            VerticalOptions="End" />
+
+                        <Image
+                            Margin="15,-450,0,0"
+                            sharedTransitions:Transition.Name="wineImg"
+                            Aspect="AspectFit"
+                            HeightRequest="300"
+                            Source="{Binding Wine.Img}" />
+
+
+                    </StackLayout>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="20,140,20,0"
+                        Orientation="Horizontal">
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            HorizontalOptions="StartAndExpand"
+                            Text="{Binding Wine.Name}"
+                            TextColor="Black" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding Wine.Price}"
+                            TextColor="Black" />
+
+                    </StackLayout>
+
+                    <Label
+                        Grid.Row="2"
+                        Margin="20,0"
+                        FontSize="Medium"
+                        Text="{Binding Wine.Model}" />
+
+                    <Label
+                        Grid.Row="3"
+                        Margin="20,30,20,0"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="About" />
+
+                    <Label
+                        Grid.Row="4"
+                        Margin="20,0"
+                        HorizontalTextAlignment="Start"
+                        Text="Occaecat qui sit quis labore reprehenderit nulla. Amet pariatur voluptate laboris ipsum veniam exercitation est do duis quis laborum reprehenderit aute." />
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
