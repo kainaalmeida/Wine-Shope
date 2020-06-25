@@ -34,7 +34,10 @@
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
-                    <custom:CustomSearch Grid.Column="0" Placeholder="Search" />
+                    <custom:CustomSearch
+                        Grid.Column="0"
+                        Placeholder="Search"
+                        TextColor="Gray" />
                     <Image
                         Grid.Column="1"
                         Aspect="AspectFit"

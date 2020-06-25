@@ -99,6 +99,63 @@
                         Margin="20,0"
                         HorizontalTextAlignment="Start"
                         Text="Occaecat qui sit quis labore reprehenderit nulla. Amet pariatur voluptate laboris ipsum veniam exercitation est do duis quis laborum reprehenderit aute." />
+
+                    <Grid Grid.Row="5" Margin="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" Orientation="Horizontal">
+
+                            <Frame
+                                Padding="5"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="30"
+                                    Source="plus"
+                                    WidthRequest="30" />
+                            </Frame>
+
+                            <Label
+                                Margin="15,0"
+                                FontSize="Large"
+                                Text="2"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+
+                            <Frame
+                                Padding="5"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Image
+                                    HeightRequest="30"
+                                    Source="minus"
+                                    WidthRequest="30" />
+                            </Frame>
+
+
+                        </StackLayout>
+
+                        <Frame
+                            Grid.Column="1"
+                            BackgroundColor="#F83A26"
+                            CornerRadius="30"
+                            HasShadow="False">
+                            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                <Image Source="cart_white" />
+                                <Label Text="ADD TO CART" TextColor="White" />
+
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+
                 </Grid>
 
             </Grid>
