@@ -3,19 +3,271 @@
     x:Class="WineShope.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:WineShope.Customs"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:titleView="clr-namespace:WineShope.Views.TitleViews"
+    BackgroundColor="#E5E5E5"
     mc:Ignorable="d">
     <NavigationPage.TitleView>
         <titleView:MainTitleView />
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid Margin="20,20,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="450" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <custom:CustomSearch Grid.Column="0" Placeholder="Search" />
+                    <Image
+                        Grid.Column="1"
+                        Aspect="AspectFit"
+                        Source="group" />
+
+                </Grid>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="0,30,0,0"
+                    Orientation="Horizontal">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Popular"
+                        TextColor="Black"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Aspect="AspectFit"
+                        HorizontalOptions="End"
+                        Source="more" />
+                </StackLayout>
+
+                <CollectionView
+                    Grid.Row="2"
+                    Margin="0,30,0,0"
+                    ItemsSource="{Binding Wines}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="15"
+                            Orientation="Horizontal"
+                            Span="2"
+                            VerticalItemSpacing="15" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <pancake:PancakeView
+                                Padding="10"
+                                BackgroundColor="White"
+                                CornerRadius="15">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.RowSpan="5"
+                                        Grid.Column="0"
+                                        Aspect="AspectFill"
+                                        HeightRequest="150"
+                                        Source="{Binding Img}"
+                                        VerticalOptions="End" />
+
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Source="heart" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        TextColor="Black" />
+
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Text="{Binding Model}" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Price}" />
+
+                                    <Grid
+                                        Grid.Row="4"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Margin="0,0,0,10"
+                                        VerticalOptions="End">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0" Orientation="Horizontal">
+                                            <Label
+                                                Text="{Binding Rating}"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                            <Image
+                                                Margin="0,3,0,0"
+                                                Aspect="AspectFit"
+                                                Source="star"
+                                                VerticalOptions="Start" />
+                                        </StackLayout>
+
+                                        <StackLayout
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            Orientation="Horizontal">
+                                            <Image
+                                                Margin="0,3,0,0"
+                                                Aspect="AspectFit"
+                                                Source="eye"
+                                                VerticalOptions="Start" />
+                                            <Label
+                                                Text="{Binding Views}"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+
+
+                                    </Grid>
+
+                                </Grid>
+                            </pancake:PancakeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout
+                    Grid.Row="3"
+                    Margin="0,30,0,0"
+                    Orientation="Horizontal">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Recomend"
+                        TextColor="Black"
+                        VerticalTextAlignment="Center" />
+                    <Image
+                        Aspect="AspectFit"
+                        HorizontalOptions="End"
+                        Source="more" />
+                </StackLayout>
+
+                <pancake:PancakeView
+                    Grid.Row="4"
+                    Margin="0,30,0,20"
+                    Padding="10"
+                    BackgroundColor="White"
+                    CornerRadius="15">
+                    <Grid ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Image
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            HeightRequest="70"
+                            Source="img01" />
+
+                        <StackLayout
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            VerticalOptions="Center">
+                            <Label
+                                FontSize="Medium"
+                                Text="White Wine"
+                                TextColor="Black" />
+
+                            <Label Text="Model 2013" />
+                        </StackLayout>
+
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="0,13,0,0"
+                            Aspect="AspectFit"
+                            Source="heart_disabled"
+                            VerticalOptions="End" />
+
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Orientation="Horizontal">
+                            <Label
+                                Text="4.5"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                            <Image
+                                Aspect="AspectFit"
+                                Source="star"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="4"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="$ 99"
+                            VerticalTextAlignment="End" />
+
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            HorizontalOptions="Start"
+                            Orientation="Horizontal">
+                            <Image
+                                Aspect="AspectFit"
+                                Source="eye"
+                                VerticalOptions="Center" />
+                            <Label
+                                Text="4.5"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+
+                    </Grid>
+                </pancake:PancakeView>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
